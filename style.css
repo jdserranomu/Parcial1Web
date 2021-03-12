@@ -1,0 +1,8 @@
+#banner {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/S8Ffdqa.png');;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #23252F;
+    background-size: cover;
+}
