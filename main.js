@@ -18,6 +18,8 @@ let selectedCategory = undefined;
 
 promesaData.then(categorias=>{
     const navigationBar = document.getElementById("navigation-bar");
+    const centralRegion = document.getElementById("central-region");
+    const centralRegionTitle = document.getElementById("category-name");
     categorias.forEach((categoria,i)=>{
         if(i===0){
             selectedCategory = categoria.name;
@@ -27,12 +29,19 @@ promesaData.then(categorias=>{
         let link = document.createElement("a");
         link.setAttribute("class", "nav-link")
         // link.setAttribute("href", "#")
-        link.onclick = ()=>{
-
-        }
         link.textContent = categoria.name;
         listItem.appendChild(link);
         navigationBar.appendChild(listItem);
+        link.onclick = ()=>{
+            selectedCategory  = categoria.name;
+            centralRegion.innerHTML = "";
+            centralRegionTitle.textContent = selectedCategory;
+            categoria.products.forEach(producto=>{
+
+            });
+            console.log(centralRegionTitle.textContent)
+
+        }
     });
 }).catch(err => console.log(err))
 
