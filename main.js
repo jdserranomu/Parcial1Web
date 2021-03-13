@@ -1,6 +1,29 @@
-//let urlData =
-// "https://gist.githubusercontent.com/josejbocanegra/9a28c356416badb8f9173daf36d1460b/raw/5ea84b9d43ff494fcbf5c5186544a18b42812f09/restaurant.json";
-let urlData = "./data.json";
+const urlData =  "https://gist.githubusercontent.com/josejbocanegra/9a28c356416badb8f9173daf3" +
+    "6d1460b/raw/5ea84b9d43ff494fcbf5c5186544a18b42812f09/restaurant.json";
+
+
+const navigationBar = document.getElementById("navigation-bar");
+const centralRegion = document.getElementById("central-region");
+const centralRegionTitle = document.getElementById("category-name");
+const cartElements = {};
+const cartLink = document.getElementById("cart-click");
+let count = 0;
+let selectedCategory = undefined;
+
+
+cartLink.onclick = onCartClick;
+
+const cardExample = '<div class="card">\n' +
+    '                    <img class="card-img-top" src="//image//" alt="imagen faltante">\n' +
+    '                    <div class="card-body">\n' +
+    '                        <h3 class="card-title">//name//</h3>\n' +
+    '                        <p class="card-text">//description//</p>\n' +
+    '                        <h4>//price//</h4>\n' +
+    '                        <a href="#" class="btn" id="//id//">Add to Cart</a>\n' +
+    '                    </div>\n' +
+    '                </div>\n';
+
+
 const promesaData = new Promise((resolve, reject) => {
     let req = new XMLHttpRequest();
     req.open('GET', urlData);
@@ -14,46 +37,79 @@ const promesaData = new Promise((resolve, reject) => {
     req.send()
 });
 
-let selectedCategory = undefined;
 
 promesaData.then(categorias=>{
-    const navigationBar = document.getElementById("navigation-bar");
-    const centralRegion = document.getElementById("central-region");
-    const centralRegionTitle = document.getElementById("category-name");
     categorias.forEach((categoria,i)=>{
-        if(i===0){
-            selectedCategory = categoria.name;
-        }
         let listItem = document.createElement("li");
         listItem.setAttribute("class", "nav-item")
         let link = document.createElement("a");
         link.setAttribute("class", "nav-link")
-        // link.setAttribute("href", "#")
         link.textContent = categoria.name;
         listItem.appendChild(link);
         navigationBar.appendChild(listItem);
-        link.onclick = ()=>{
-            selectedCategory  = categoria.name;
-            centralRegion.innerHTML = "";
-            centralRegionTitle.textContent = selectedCategory;
-            categoria.products.forEach(producto=>{
-
-            });
-            console.log(centralRegionTitle.textContent)
-
+        link.onclick = onClickCategory(categoria)
+        if(i===0){
+            onClickCategory(categoria)();
+            updateCount();
         }
     });
-}).catch(err => console.log(err))
+}).catch(err=>console.log(err));
 
 
-function onSection(){
-    console.log("Hello")
+function onClickCategory(category){
+    return ()=> {
+        selectedCategory  = category.name;
+        centralRegion.innerHTML = "";
+        centralRegionTitle.textContent = selectedCategory;
+        category.products.forEach(product=>{
+            const column = document.createElement("div");
+            column.className = "col-3";
+            column.innerHTML = createFoodCard(product);
+            centralRegion.appendChild(column);
+            const btn = document.getElementById("btn-"+product.name);
+            btn.onclick = buttonAdd(product)
+        });
+    }
 }
 
 
-// < li
-// className = "nav-item" >
-//     < a
-// class Name = "nav-link disabled"
-// href = "#" > Disabled < /a>
-// </li>
+function createFoodCard(product){
+    let card = cardExample;
+    card = card.replace("//name//", product.name);
+    card = card.replace("//description//", product.description);
+    card = card.replace("//image//", product.image);
+    card = card.replace("//price//", "$ "+product.price);
+    card = card.replace("//id//", "btn-"+product.name);
+    return card;
+}
+
+function buttonAdd(product){
+    return ()=>{
+
+        if(cartElements[product.name]) {
+            cartElements[product.name]["count"] ++;
+        }else{
+            product = Object.assign(product, {});
+            product["count"] = 1;
+            cartElements[product.name] = product
+        }
+        count ++;
+        updateCount();
+    }
+}
+
+
+function updateCount(){
+    const countSpan = document.getElementById("cart-count");
+    countSpan.innerHTML = count+"";
+}
+
+
+
+function onCartClick(){
+    console.log(cartElements);
+    selectedCategory  = undefined;
+    centralRegion.innerHTML = "";
+    centralRegionTitle.textContent = selectedCategory;
+
+}

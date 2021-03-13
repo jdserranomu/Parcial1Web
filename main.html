@@ -1,53 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Manu Restaurante</title>
     <link href="./style.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="css/bootstrap.css" rel="stylesheet"  crossorigin="anonymous">
 </head>
 <body>
 <div class="container-fluid">
 
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container" id="banner">
-            <h1 class="display-4">Restaurant and Lounge</h1>
-            <p>Items</p>
-            <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="first-navbar">
+        <span class="navbar-brand" id="title">Restaurante and Lounge</span>
 
-            </div>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                </li>
+            </ul>
+            <a id="cart-click">
+                <img id="icon" src="https://i.imgur.com/1EKrQIi.png">
+            </a>
+            <span class="navbar-text">
+                <span id="cart-count"></span> Items
+            </span>
+
         </div>
+    </nav>
+
+    <div class="jumbotron" id="banner">
     </div>
-
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <hr>
+    <nav class="navbar navbar-expand navbar-dark bg-dark back-ground-color-blue" id="second-navbar">
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" id="navigation-bar">
-
             </ul>
         </div>
-
-
     </nav>
+    <hr>
+
+
     <div>
         <h2 id="category-name"></h2>
+        <hr>
         <section class="row" id="central-region">
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
+
         </section>
     </div>
+
+
+
+    <footer>
+        <p>Contact us: +57 3102105253 - info@restaurant.com - @restaurant </p>
+    </footer>
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
 
 <script src="./main.js" ></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/bootstrap.bundle.js" crossorigin="anonymous"></script>
 </body>
 </html>
