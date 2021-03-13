@@ -121,6 +121,17 @@ footer{
         margin-left: 1em;
         font-weight: bold !important;
 }
-/*.mr-auto{*/
 
-/*}*/
+.text-color-white{
+    color: white !important;
+}
+
+.add-remove-button{
+    height: 2.3em;
+    width: 2.3em;
+}
+
+
+.back-ground-color-almost-white{
+    background-color: #69757C !important;
+}

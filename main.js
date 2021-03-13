@@ -148,35 +148,37 @@ function updateCount() {
 
 
 function onCartClick() {
+    selectedCategory = undefined;
+    centralRegion.innerHTML = "";
     centralRegionTitle.textContent = "Order Detail";
     const table = document.createElement("table");
     table.className = "table table-striped text-color-blue";
     table.innerHTML = tableContent;
-    let body = table.childNodes[3]
-    let allRows = "";
+    let body = table.childNodes[3];
     let grandTotal = 0;
     Object.values(cartElements).forEach((product,item)=>{
         let totalProduct = product.count * product.price;
         const row = document.createElement("tr");
-        row.innerHTML = `<th>${item}</th>\n` +
+        row.innerHTML = `<th>${item+1}</th>\n` +
             `      <td>${product.count}</td>\n` +
             `      <td>${product.name}</td>\n` +
             `      <td>${product.price}</td>\n` +
-            `      <td>${totalProduct}</td>\n`+
             `      <td>${totalProduct}</td>\n`;
+        const columnButtons = document.createElement("td");
+        let btn = document.createElement("button");
+        btn.className = "btn btn-light back-ground-color-almost-white text-color-white add-remove-button";
+        btn.textContent = "+";
+        btn.onclick = buttonAdd(product);
+        row.appendChild(btn);
+        btn = document.createElement("button");
+        btn.className = "btn btn-light back-ground-color-almost-white text-color-white add-remove-button";
+        btn.textContent = "-";
+        btn.onclick = buttonRemove(product);
+        row.appendChild(btn);
         body.appendChild(row);
-        // let row = rowScheme;
-        // grandTotal += totalProduct;
-        // row = row.replace("//item//", item+1);
-        // row = row.replace("//count//", product.count);
-        // row = row.replace("//description//", product.name);
-        // row = row.replace("//price//", product.price);
-        // row = row.replace("//amount//", totalProduct+"" );
-        // allRows +=row;
+        grandTotal +=totalProduct;
     });
-    // body.innerHTML = allRows;
-    selectedCategory = undefined;
-    centralRegion.innerHTML = "";
+
     centralRegion.appendChild(table);
     appendTotal(grandTotal);
 }
@@ -200,7 +202,3 @@ function appendTotal(grandTotal){
     centralRegion.appendChild(element);
 
 }
-
-// <div className="mr-auto p-2">Total: $//grandTotal//</div>
-// <button type="button" className="btn back-ground-color-red btn-order">Cancel</button>
-// <button type="button" className="btn btn-order">Confirm Order</button>
