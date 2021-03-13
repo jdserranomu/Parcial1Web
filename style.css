@@ -100,3 +100,27 @@ footer{
     display: block;
     margin-right: 1em;
 }
+
+.btn-order{
+    color: black !important;
+    border-width: .1em !important;
+    border-color: black !important;
+    margin-right: 1em !important;
+}
+
+.back-ground-color-red{
+    background-color: #FE4E5B !important;
+}
+
+.table{
+    margin: 1em
+}
+
+
+.bold-total{
+        margin-left: 1em;
+        font-weight: bold !important;
+}
+/*.mr-auto{*/
+
+/*}*/
