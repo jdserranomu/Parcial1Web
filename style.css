@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
-body{
+body {
 
 }
 
-#title{
+#title {
     font-family: 'Satisfy', cursive, sans-serif;
     font-size: 200%;
 }
 
-h2{
+h2 {
     margin-top: 0 !important;
     font-size: 200% !important;
     font-weight: bold !important;
@@ -17,25 +17,25 @@ h2{
 }
 
 
-.card h3, .card h4{
+.card h3, .card h4 {
     font-weight: bold;
     font-size: medium;
 }
 
 
-.text-color-blue{
+.text-color-blue {
     color: #2B3842 !important;
 }
 
-.back-ground-color-blue{
+.back-ground-color-blue {
     background-color: #2B3842 !important;
 }
 
-.card{
+.card {
     color: #2B3842 !important;
 }
 
-.card .btn{
+.card .btn {
     background-color: #2B3842;
     color: white;
 }
@@ -55,14 +55,14 @@ h2{
 }
 
 
-#second-navbar{
-    height:4em;
+#second-navbar {
+    height: 4em;
     font-weight: bold;
     background-color: #2B3842 !important;
     font-size: large;
 }
 
-#second-navbar li{
+#second-navbar li {
     margin: 0 .5em;
 }
 
@@ -73,28 +73,28 @@ h2{
     object-fit: cover;
 }
 
-.card{
-    min-height:40rem;
+.card {
+    min-height: 40rem;
     margin: 1rem .3rem 0rem .3rem;
 }
 
-.card p{
+.card p {
     min-height: 7em;
 }
 
-.card h3{
+.card h3 {
     min-height: 1em;
 }
 
 
-footer{
+footer {
     margin: 5em 0;
     font-weight: bolder;
     color: #2B3842;
     text-align: center;
 }
 
-.modal h5{
+.modal h5 {
     font-weight: bolder;
     color: #2B3842;
 }
@@ -106,38 +106,38 @@ footer{
     margin-right: 1em;
 }
 
-.btn-order{
+.btn-order {
     color: black !important;
     border-width: .1em !important;
     border-color: black !important;
     margin-right: 1em !important;
 }
 
-.back-ground-color-red{
+.back-ground-color-red {
     background-color: #FE4E5B !important;
 }
 
-.table{
+.table {
     margin: 1em
 }
 
 
-.bold-total{
-        margin-left: 1em;
-        font-weight: bold !important;
+.bold-total {
+    margin-left: 1em;
+    font-weight: bold !important;
 }
 
-.text-color-white{
+.text-color-white {
     color: white !important;
 }
 
-.add-remove-button{
+.add-remove-button {
     height: 2.3em;
     width: 2.3em;
 }
 
 
-.back-ground-color-almost-white{
+.back-ground-color-almost-white {
     background-color: #69757C !important;
 }
 
