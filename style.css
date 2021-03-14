@@ -94,6 +94,11 @@ footer{
     text-align: center;
 }
 
+.modal h5{
+    font-weight: bolder;
+    color: #2B3842;
+}
+
 #icon {
     height: 2em;
     width: 2em;
@@ -135,3 +140,4 @@ footer{
 .back-ground-color-almost-white{
     background-color: #69757C !important;
 }
+

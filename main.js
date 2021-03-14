@@ -5,10 +5,12 @@ const urlData = "https://gist.githubusercontent.com/josejbocanegra/9a28c356416ba
 const navigationBar = document.getElementById("navigation-bar");
 const centralRegion = document.getElementById("central-region");
 const centralRegionTitle = document.getElementById("category-name");
-const cartElements = {};
+let cartElements = {};
 const cartLink = document.getElementById("cart-click");
 let count = 0;
 let selectedCategory = undefined;
+const btnCancel = document.getElementById("yes-cancel");
+btnCancel.onclick = eraseAll;
 
 
 cartLink.onclick = onCartClick;
@@ -195,10 +197,24 @@ function appendTotal(grandTotal){
     element = document.createElement("button");
     element.className = 'btn back-ground-color-red btn-order';
     element.textContent = "Cancel";
+    element.setAttribute("data-toggle", "modal");
+    element.setAttribute("data-target", "#modal-cancel");
     centralRegion.appendChild(element);
     element = document.createElement("button");
     element.className = 'btn btn-order';
     element.textContent = "Confirm Order";
+    element.onclick = ()=>{
+        console.log(Object.values(cartElements));
+        eraseAll();
+    }
     centralRegion.appendChild(element);
+}
 
+
+
+
+function eraseAll(){
+    cartElements = [];
+    count = 0;
+    onCartClick();
 }
