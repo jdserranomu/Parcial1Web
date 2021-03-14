@@ -123,6 +123,7 @@ function buttonRemove(product) {
       delete cartElements[product.name];
     }
     count--;
+    updateCount();
     onCartClick();
   };
 }
