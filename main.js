@@ -203,5 +203,6 @@ function appendTotal(grandTotal) {
 function eraseAll() {
   cartElements = [];
   count = 0;
+  updateCount();
   onCartClick();
 }
